@@ -4,6 +4,7 @@
   "description": "",
   "main": "index.js",
   "scripts": {
+    "lint": "eslint src && sass-lint 'src/styles/**/*.scss' -v",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "author": "",
