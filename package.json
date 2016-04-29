@@ -18,10 +18,9 @@
     "clean": "rimraf lib es6 umd",
     "build:cjs": "cross-env BABEL_ENV=cjs babel ./src -d lib",
     "build:es": "cross-env BABEL_ENV=es babel ./src -d es6",
-    "build:umd": "cross-env BABEL_ENV=cjs NODE_ENV=development webpack src/index.js umd/ReactPackageSkeleton.js",
-    "build:min": "cross-env BABEL_ENV=cjs NODE_ENV=production webpack -p src/index.js umd/ReactPackageSkeleton.min.js",
-    "build": "npm run build:cjs && npm run build:es && npm run build:umd && npm run build:umd",
-    "prepublish": "npm run clean && npm run lint && npm run build"
+    "build": "npm run build:cjs && npm run build:es",
+    "prepublish": "npm run clean && npm run lint && npm run build",
+    "dev": "webpack-dev-server example --content-base example --inline --progress --colors"
   },
   "author": "Vlad Shcherbin",
   "license": "MIT",
@@ -42,7 +41,8 @@
     "react-dom": "^15.0.1",
     "rimraf": "^2.5.2",
     "sass-lint": "^1.7.0",
-    "webpack": "^2.1.0-beta"
+    "webpack": "^2.1.0-beta",
+    "webpack-dev-server": "^1.14.1"
   },
   "peerDependencies": {
     "react": "^15.0.1",
