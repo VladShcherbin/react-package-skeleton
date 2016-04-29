@@ -5,8 +5,7 @@
   "files": [
     "*.md",
     "es6",
-    "lib",
-    "umd"
+    "lib"
   ],
   "main": "lib/index",
   "jsnext:main": "es6/index",
