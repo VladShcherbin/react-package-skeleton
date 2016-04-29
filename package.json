@@ -14,7 +14,7 @@
   "bugs": "https://github.com/VladShcherbin/react-package-skeleton/issues",
   "scripts": {
     "lint": "eslint src && sass-lint 'src/styles/**/*.scss' -v",
-    "clean": "rimraf lib es6 umd",
+    "clean": "rimraf lib es6",
     "build:cjs": "cross-env BABEL_ENV=cjs babel ./src -d lib",
     "build:es": "cross-env BABEL_ENV=es babel ./src -d es6",
     "build": "npm run build:cjs && npm run build:es",
