@@ -1,7 +1,9 @@
 import React from 'react'
 
 const Component = () => (
-  <p>Hey!</p>
+  <section className="component">
+    <p>Hey!</p>
+  </section>
 )
 
 export default Component
