@@ -1,15 +1,38 @@
 {
   "name": "react-package",
   "version": "1.0.0",
-  "description": "",
-  "main": "index.js",
+  "description": "package description",
+  "files": [
+    "*.md",
+    "es6",
+    "lib",
+    "umd"
+  ],
+  "main": "lib/index",
+  "jsnext:main": "es6/index",
+  "repository": "VladShcherbin/react-package-skeleton",
+  "homepage": "https://github.com/VladShcherbin/react-package-skeleton#readme",
+  "bugs": "https://github.com/VladShcherbin/react-package-skeleton/issues",
   "scripts": {
     "lint": "eslint src && sass-lint 'src/styles/**/*.scss' -v",
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "clean": "rimraf lib es6 umd",
+    "build:cjs": "cross-env BABEL_ENV=cjs babel ./src -d lib",
+    "build:es": "cross-env BABEL_ENV=es babel ./src -d es6",
+    "build:umd": "cross-env BABEL_ENV=cjs NODE_ENV=development webpack src/index.js umd/ReactPackageSkeleton.js",
+    "build:min": "cross-env BABEL_ENV=cjs NODE_ENV=production webpack -p src/index.js umd/ReactPackageSkeleton.min.js",
+    "build": "npm run build:cjs && npm run build:es && npm run build:umd && npm run build:umd",
+    "prepublish": "npm run clean && npm run lint && npm run build"
   },
-  "author": "",
+  "author": "Vlad Shcherbin",
   "license": "MIT",
   "devDependencies": {
+    "babel-loader": "^6.2.4",
+    "babel-preset-es2015": "^6.6.0",
+    "babel-preset-es2015-loose": "^7.0.0",
+    "babel-preset-es2015-loose-native-modules": "^1.0.0",
+    "babel-preset-react": "^6.5.0",
+    "babel-preset-stage-2": "^6.5.0",
+    "cross-env": "^1.0.7",
     "eslint": "^2.8.0",
     "eslint-config-airbnb": "^8.0.0",
     "eslint-plugin-import": "^1.6.1",
@@ -17,10 +40,23 @@
     "eslint-plugin-react": "^5.0.1",
     "react": "^15.0.1",
     "react-dom": "^15.0.1",
-    "sass-lint": "^1.7.0"
+    "rimraf": "^2.5.2",
+    "sass-lint": "^1.7.0",
+    "webpack": "^2.1.0-beta"
   },
   "peerDependencies": {
     "react": "^15.0.1",
     "react-dom": "^15.0.1"
-  }
+  },
+  "tags": [
+    "react",
+    "package",
+    "skeleton"
+  ],
+  "keywords": [
+    "react",
+    "package",
+    "skeleton",
+    "boilerplate"
+  ]
 }
